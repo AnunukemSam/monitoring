@@ -1,0 +1,20 @@
+grafana:
+  adminPassword: admin123
+  persistence:
+    enabled: true
+    size: 5Gi
+    accessModes:
+      - ReadWriteOnce
+    storageClassName: default
+
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: default
+          resources:
+            requests:
+              storage: 5Gi
